@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+{% block head %} {% include 'control/inc/_head.html' %} {% endblock %}
+<body>
+
+
+	<div class="wrapper">
+
+		<div class="page-wrapper">
+			<div class="page-content">
+				<!--breadcrumb-->
+
+				<!--end breadcrumb-->
+				<h6 class="mb-0 text-uppercase">Контроль статистики персональных ссылок</h6>
+				<form id="Form" method="post">
+					{% csrf_token %}
+					<div class="card-body">
+								<div class="input-group"> <span class="input-group-text">Идентификатор</span>
+									<input type="text" aria-label="First name" class="form-control" name="id" id="link">
+									<a class="btn btn-primary px-5" id="but">Получить информацию</a>
+								</div>
+							</div>
+
+				</form>
+
+
+			</div>
+		</div>
+
+	</div>
+
+
+{% block scripts %} {% include 'control/inc/_scripts.html' %} {% endblock %}
+</body>
+			<script>
+
+			let url = document.getElementById('link');
+			let button = document.getElementById('but');
+
+			button.addEventListener("click", fun);
+			function fun(){
+					window.location.href = "control/" + url.value
+
+			}
+
+
+
+
+
+			</script>
+
+</html>

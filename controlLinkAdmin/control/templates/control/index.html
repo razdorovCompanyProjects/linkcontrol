@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+{% block head %} {% include 'control/inc/_head.html' %} {% endblock %}
+<body>
+
+	<div class="wrapper">
+
+		<div class="page-wrapper">
+			<div class="page-content">
+				<!--breadcrumb-->
+
+				<!--end breadcrumb-->
+				<h6 class="mb-0 text-uppercase">Контроль статистики персональных ссылок</h6>
+				<form id="Form" method="post" action="http://127.0.0.1:8000/control/{{id}}/">
+					{% csrf_token %}
+									<div class="col text-center">
+										<a class="btn btn-primary px-5" id="link">Обновить информацию</a>
+									</div>
+				</form>
+
+				<hr/>
+				<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+					<div class="col">
+						<div class="card radius-10 ">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Количество переходов</p>
+										<h5 class="mb-0">{{metrika}}</h5>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card radius-10">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Количество лидов</p>
+										<h5 class="mb-0">{{lead}}</h5>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+<script>
+	let link = document.getElementById("link")
+	link.addEventListener("click", fun);
+	function fun(){
+	location.reload()
+	}
+</script>
+{% block scripts %} {% include 'control/inc/_scripts.html' %} {% endblock %}
+</body>
+
+
+</html>
