@@ -23,7 +23,7 @@ class DataMetrika:
         self.dateNow = date.today()
 
     def getData(self):
-        headers = {'Authorization': 'OAuth y0_AgAAAAA8bbPQAAvlPAAAAAEGhxsTAABqCPHZ9iFLEK7C5lgG6lKM_u72Qw',
+        headers = {'Authorization': 'OAuth y0_AgAAAAA8bbPQAAzQOAAAAAEZRmV7AAD7OJ1_J75AV7R5rVNzMC1k2l_OjA',
                    'Content-Length': '123', 'Content-Type': 'application/x-yametrika+json'}
         r = requests.get('https://api-metrika.yandex.net/stat/v1/data',
                          params={'id': '84078475', 'metrics': 'ym:s:visits', 'filters': f"ym:pv:UTMMedium=='{self.id}'",
